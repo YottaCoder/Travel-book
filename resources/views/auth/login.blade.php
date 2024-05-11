@@ -34,6 +34,20 @@
 	  background-image: url('loginassets/images/bg-03.png');
 	  background-size: cover;
 	}
+	select{
+		/* width: 25vw; */
+		line-height: 1.5;
+		border: none;
+		border-radius: 10px;
+		color:white;
+		padding: 15px 10px;
+		/* background-color:  hsla(0, 0%, 0%, 0); */
+		background-color:transparent;
+	}
+	select:focus{
+		background-color: #4692F5;
+		transform: scale(1.01);
+	}
   </style>
   
 </head>
@@ -53,14 +67,29 @@
 						Log in
 					</span>
 
+					<div class="wrap-input100 validate-input" data-validate="Select User Type">
+						<select class="input100" name="usertype" required>
+							<option value="" selected disabled hidden>Select User Type</option>
+							<option value="Traveler">Traveler</option>
+							<option value="Tour Owner">Tour Owner</option>
+							<option value="Hotel Owner">Hotel Owner</option>
+							<option value="Airline">Airline </option>
+						</select>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Enter Email Address">
 						<input class="input100" type="email" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" style="margin-bottom: 2px" data-validate="Enter password">
 						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="text-right p-t-12" style="color: white; margin-bottom : 5px">
+   						 <a class="" href="{{ route('password.request') }}" style="color: white !important; font-size: 1rem !important;">Forgot Password ?</a>
 					</div>
 
 					<div class="container-login100-form-btn">
@@ -68,6 +97,7 @@
 							Login
 						</button>
 					</div>
+					
 					
 					<div class="text-center p-t-12" style="color: white;">
 						Don't have an account ? 
