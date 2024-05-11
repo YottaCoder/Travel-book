@@ -73,15 +73,15 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a class="menu-link">
+            <li class="menu-item">
+              <a class="menu-link" href="./TourAdmin.html">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item ">
               <a href="./pages-account-settings-account.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Account Settings</div>
@@ -93,8 +93,8 @@
               <span class="menu-header-text">Pages</span>
             </li>
 
-            <li class="menu-item">
-              <a class="menu-link" href="./AddTour.html">
+            <li class="menu-item active">
+              <a class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Add Tour</div>
               </a>
@@ -185,29 +185,125 @@
           </nav>
 
           <!-- / Navbar -->
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Add Tour</span></h4>
+
               <div class="row">
-                <div class="col-lg-12 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">Organization</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="Organization"
+                              name="Organization"
+                              placeholder="Tour Organizer"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="Tour name" class="form-label">Tour name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="Tour name"
+                              name="Tour name"
+                              placeholder="Best Delhi to Ladakh tour "
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">Destination</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="Destination From"
+                              name="Destination From"
+                              placeholder="From"
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">&nbsp;</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="Destination To"
+                              name="Destination To"
+                              placeholder="To"
+                            />
+                          </div>
+                          
+                          <div class="mb-3 col-md-6">
+                            <label for="address" class="form-label">Prize</label>
+                            <input type="text" class="form-control" id="Prize" name="Prize" placeholder="Tour Prize" />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="zipCode" class="form-label">Days</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="TourDay"
+                              name="TourDay"
+                              placeholder="How many Day for Tour"
+                              maxlength="6"
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="zipCode" class="form-label">Nights</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="TourNights"
+                              name="TourNights"
+                              placeholder="How many Night for Tour"
+                              maxlength="6"
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label">Facility</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="Meals" id="Meals" name="checkboxOption1">
+                                    <label class="form-check-label" for="checkboxOption1">
+                                        Meals
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="Hotel" id="Hotel" name="checkboxOption2">
+                                    <label class="form-check-label" for="checkboxOption2">
+                                        Hotel
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="Transfer" id="Transfer" name="checkboxOption3">
+                                    <label class="form-check-label" for="checkboxOption3">
+                                        Transfer
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        
+                        
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Add Tour</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
                     </div>
+                    <!-- /Account -->
                   </div>
                 </div>
               </div>
             </div>
             <!-- / Content -->
-
 
             <div class="content-backdrop fade"></div>
           </div>
