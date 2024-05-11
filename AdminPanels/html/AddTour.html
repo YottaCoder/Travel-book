@@ -94,14 +94,14 @@
             </li>
 
             <li class="menu-item active">
-              <a class="menu-link">
+              <a href="./AddTour.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Add Tour</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a class="menu-link">
+              <a href="./AllTours.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">All Tours</div>
               </a>
@@ -289,7 +289,25 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="button-wrapper">
+                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <span class="d-none d-sm-block">Upload Tour photo</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input
+                              type="file"
+                              id="upload"
+                              class="account-file-input"
+                              hidden
+                              accept="image/png, image/jpeg"
+                            />
+                          </label>
+                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                            <i class="bx bx-reset d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Reset</span>
+                          </button>
+                          <P style="color: red;">This photo is seen by travelers to attract more attention to your tour.</P>
+                          <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                        </div>
                         
                         </div>
                         <div class="mt-2">
