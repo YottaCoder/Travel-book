@@ -95,11 +95,25 @@
 										<li class="smooth-menu"><a href="#spo">Special Offers</a></li>
 										<li class="smooth-menu"><a href="#blog">blog</a></li>
 										<li class="smooth-menu"><a href="#subs">subscription</a></li>
-										<li>
-                                             <a href="{{ route('login') }}"> 
-											    <button class="book-btn">Login</button>
-                                             </a> 
-										</li><!--/.project-btn--> 
+										@if(Route::has('login'))
+
+											@auth
+												<li>
+													<form method="POST" action="{{ route('logout')}}">
+																@csrf
+																<input type="submit" value="Logout" class="book-btn">
+
+													</form>
+												</li>
+											@else
+												<li>
+													<a href="{{ route('login') }}"> 
+														<button class="book-btn">Login</button>
+													</a> 
+												</li>
+											@endauth
+										@endif
+										<!--/.project-btn--> 
 									</ul>
 								</div><!-- /.navbar-collapse -->
 							</div><!-- /.main-menu-->
