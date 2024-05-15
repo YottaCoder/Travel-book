@@ -83,86 +83,86 @@
 			margin: 20px;
 			margin-top : 1rem;
 			margin-bottom: 1rem; 
-}
+		}
 
-.card-img {
-    width: 250px;
-    height: auto;
-    object-fit: cover;
-    border-right: 2px solid #ddd;
-}
+		.card-img {
+			width: 250px;
+			height: auto;
+			object-fit: cover;
+			border-right: 2px solid #ddd;
+		}
 
-.card-content {
-	height: 100%;
-    padding: 20px;
-    flex: 1;
-}
+		.card-content {
+			height: 100%;
+			padding: 20px;
+			flex: 1;
+		}
 
-.card-title {
-    font-size: 2rem;
-    color: #333;
-    margin: 0;
-	margin-bottom: 1rem;
-}
+		.card-title {
+			font-size: 2rem;
+			color: #333;
+			margin: 0;
+			margin-bottom: 1rem;
+		}
 
-.card-duration,
-.card-seller,
- {
-    font-size: 1rem;
-    color: #666;
-}
+		.card-duration,
+		.card-seller,
+		{
+			font-size: 1rem;
+			color: #666;
+		}
 
-.card-details {
-    margin-top: 10px;
-}
+		.card-details {
+			margin-top: 10px;
+		}
 
-.card-icons span {
-    margin-right: 15px;
-    color: #666;
-    font-size: 1.3rem;
-}
+		.card-icons span {
+			margin-right: 15px;
+			color: #666;
+			font-size: 1.3rem;
+		}
 
-.card-price {
-	font-size: 1rem;
-    padding: 60px;
-    background-color: #f9f9f9;
-    text-align: center;
-    border-left: 2px solid #ddd;
-    min-width: 150px;
-}
+		.card-price {
+			font-size: 1rem;
+			padding: 60px;
+			background-color: #f9f9f9;
+			text-align: center;
+			border-left: 2px solid #ddd;
+			min-width: 150px;
+		}
 
-.price {
-    font-size: 1.5rem;
-    color: #e74c3c;
-    margin: 0;
-}
+		.price {
+			font-size: 1.5rem;
+			color: #e74c3c;
+			margin: 0;
+		}
 
-.price-desc {
-    font-size: 0.875rem;
-    color: #666;
-}
+		.price-desc {
+			font-size: 0.875rem;
+			color: #666;
+		}
 
-.view-details {
-    margin-top: 4rem;
-    padding: 10px 20px;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 10rem;
-}
+		.view-details {
+			margin-top: 4rem;
+			padding: 10px 20px;
+			background-color: #e74c3c;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 1rem;
+			width: 10rem;
+		}
 
-.view-details:hover {
-    background-color: #c0392b;
-}
+		.view-details:hover {
+			background-color: #c0392b;
+		}
 
-.earn-cash {
-    font-size: 0.875rem;
-    color: #666;
-    margin-top: 10px;
-}
+		.earn-cash {
+			font-size: 0.875rem;
+			color: #666;
+			margin-top: 10px;
+		}
 	</style>
 	<body>
 		<!--[if lte IE 9]>
@@ -301,59 +301,44 @@
 
 								<div role="tabpanel" class="tab-pane active fade in" id="tours">
 									<div class="tab-para">
-
+									
+									<form id="tourSearchForm" method="GET" action="{{ route('searchTours') }}">
 										<div class="row">
 											<div class="col-lg-4 col-md-4 col-sm-12">
 												<div class="single-tab-select-box">
-
-													<h2>destination</h2>
-
+													<h2>Destination</h2>
 													<div class="travel-select-icon">
-														<select class="form-control ">
-
-															<option value="default">enter your destination</option><!-- /.option-->
-
-															<option value="turkey">turkey</option><!-- /.option-->
-
-															<option value="russia">russia</option><!-- /.option-->
-															<option value="egept">egypt</option><!-- /.option-->
-
-														</select><!-- /.select-->
-													</div><!-- /.travel-select-icon -->
-
+														<select class="form-control" name="DestinationFrom">
+															<option value="default" selected disabled hidden>Enter your destination</option>
+															@foreach($data as $tour)
+															  	<option value="{{$tour->DestinationFrom}}">{{$tour->DestinationFrom}}</option>
+															@endforeach
+															
+														</select>
+													</div>
 													<div class="travel-select-icon">
-														<select class="form-control ">
-
-															<option value="default">enter your destination location</option><!-- /.option-->
-
-															<option value="istambul">istambul</option><!-- /.option-->
-
-															<option value="mosko">mosko</option><!-- /.option-->
-															<option value="cairo">cairo</option><!-- /.option-->
-
-														</select><!-- /.select-->
-													</div><!-- /.travel-select-icon -->
-
-												</div><!--/.single-tab-select-box-->
-											</div><!--/.col-->
-
+														<select class="form-control" name="DestinationTo">
+															<option value="default" selected disabled hidden>Enter your destination location</option>
+															@foreach($data as $tour)
+															  	<option value="{{$tour->DestinationTo}}">{{$tour->DestinationTo}}</option>
+															@endforeach
+														</select>
+													</div>
+												</div>
+											</div>
 											<div class="col-lg-2 col-md-3 col-sm-4">
 												<div class="single-tab-select-box">
 													<h2>Tour Date</h2>
 													<div class="travel-check-icon">
-														<form action="#">
-															<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
-														</form>
-													</div><!-- /.travel-check-icon -->
-												</div><!--/.single-tab-select-box-->
-											</div><!--/.col-->
-
+														<input type="text" name="date" class="form-control" data-toggle="datepicker" placeholder="22-01-2017">
+													</div>
+												</div>
+											</div>
 											<div class="col-lg-2 col-md-1 col-sm-4">
 												<div class="single-tab-select-box">
 													<h2>Adults</h2>
 													<div class="travel-select-icon">
-														<select class="form-control ">
-
+														<select class="form-control" name="adults">
 															<option value="default">None</option>
 															<option value="1">1</option>
 															<option value="2">2</option>
@@ -361,49 +346,42 @@
 															<option value="4">4</option>
 															<option value="5">5</option>
 															<option value="6">6</option>
-
-														</select><!-- /.select-->
-													</div><!-- /.travel-select-icon -->
-												</div><!--/.single-tab-select-box-->
-											</div><!--/.col-->
-
+														</select>
+													</div>
+												</div>
+											</div>
 											<div class="col-lg-2 col-md-1 col-sm-4">
 												<div class="single-tab-select-box">
-													<h2>childs</h2>
+													<h2>Children</h2>
 													<div class="travel-select-icon">
-														<select class="form-control ">
-
-															<option value="default">None</option><!-- /.option-->
-															<option value="1">1</option><!-- /.option-->
-															<option value="2">2</option><!-- /.option-->
-															<option value="3">3</option><!-- /.option-->
-															<option value="4">4</option><!-- /.option-->
-															
-														</select><!-- /.select-->
-													</div><!-- /.travel-select-icon -->
-												</div><!--/.single-tab-select-box-->
-											</div><!--/.col-->
-
-										</div><!--/.row-->
-
+														<select class="form-control" name="children">
+															<option value="default">None</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
 										<div class="row">
-											<div class="clo-sm-7">
+											<div class="col-sm-7">
 												<div class="about-btn travel-mrt-0 pull-right">
-													<button  class="about-view travel-btn">
-														search	
-													</button><!--/.travel-btn-->
-												</div><!--/.about-btn-->
-											</div><!--/.col-->
+													<button type="submit" class="about-view travel-btn" onclick=SearchTour()>Search</button>
+												</div>
+											</div>
+										</div>
+									</form>
 
-										</div><!--/.row-->
 
 									</div><!--/.tab-para-->
 
 								</div><!--/.tabpannel-->
-						
+
 								<div role="tabpanel" class="tab-pane fade in" id="hotels">
 									<div class="tab-para">
-
+										
 										<div class="row">
 											<div class="col-lg-4 col-md-4 col-sm-12">
 												<div class="single-tab-select-box">
@@ -669,28 +647,40 @@
 									</div>
 
 								</div><!--/.tabpannel-->
+								@if($data->isEmpty())
+            						<p>No tours found for the selected criteria.</p>
+        						@else
+								@foreach($data as $tour)
 									<div class="Card-Body">
 										<div class="card">
 											<img src="{{asset('/homeassets/images/Card/Taj Mahal.jpg')}}" alt="Taj Mahal" class="card-img">
 											<div class="card-content">
-												<h1 class="card-title">Beautiful Leh With Pangong Lake (Standard)</h1>
-												<p class="card-duration">4 Nights / 5 Days</p>
-												<p class="card-seller">Tour Owner: Tony Traveler</p>
+												<h1 class="card-title">{{ $tour->TourName }}</h1>
+												<p class="card-duration">{{ $tour->TourNights }} Nights / {{ $tour->TourDay }} Days</p>
+												<p class="card-seller">{{ $tour->Organization }}</p>
 												<div class="card-details">
 													<div class="card-icons">
-														<span>Meals</span>
-														<span>Hotel</span>
-														<span>Transfer</span>
+														<!-- <span>{{ $tour->Facility }}</span> -->
+														<span>
+														@php 
+															$facility = json_decode($tour->Facility)
+														@endphp
+														@foreach($facility as $facility)
+															{{$facility}} &nbsp;
+														@endforeach
+														</span>
 													</div>
 												</div>
 											</div>
 											<div class="card-price">
-												<p class="price">₹ 22,590</p>
+												<p class="price">₹ {{ $tour->Prize }}</p>
 												<p class="price-desc">Per Person on twin sharing</p>
 												<button class="view-details">Book</button>
 											</div>
 										</div>
 									</div>
+									@endforeach
+									@endif
 								</div><!--/.tab content-->
 							</div><!--/.desc-tabs-->
         				</div><!--/.single-travel-box-->
@@ -1568,7 +1558,7 @@
 		<!-- jquery.filterizr.min.js -->
 		<script src="{{asset('homeassets/js/jquery.filterizr.min.js')}}"></script>
 
-		<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 		<!--jquery-ui.min.js-->
         <script src="{{asset('homeassets/js/jquery-ui.min.js')}}"></script>
@@ -1589,7 +1579,6 @@
 
 		<!--Custom JS-->
 		<script src="{{asset('homeassets/js/custom.js')}}"></script>
-
 
 	</body>
 

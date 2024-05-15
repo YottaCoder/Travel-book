@@ -5,13 +5,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TourAdminController;
 use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/',[HomeController::class,'home']);
+Route::get('/dashboard',[HomeController::class,'login_home'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,4 +39,4 @@ Route::get('/allTours',[TourAdminController::class,'showtour'])->name('allTours'
 
 Route::get('/deletetour/{id}',[TourAdminController::class,'deletetour']);
 
-Route::get('/dashboard',[TourAdminController::class,'destination'])->name('dashboard');
+Route::get('/search-tours', [HomeController::class, 'search'])->name('searchTours');

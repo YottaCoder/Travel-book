@@ -98,7 +98,7 @@
 
 											@auth
 												<li>
-													<form method="POST" action="{{ route('logout')}}" style="padding-top:1px;">>
+													<form method="POST" action="{{ route('logout')}}" style="padding-top:1px;">
 																@csrf
 																<input type="submit" value="Logout" class="book-btn">
 
@@ -207,12 +207,10 @@
 														<div class="travel-select-icon">
 															<select class="form-control ">
 
-															  	<option value="default">enter your destination</option><!-- /.option-->
-
-															  	<option value="turkey">turkey</option><!-- /.option-->
-
-															  	<option value="russia">russia</option><!-- /.option-->
-															  	<option value="egept">egypt</option><!-- /.option-->
+																<option value="default" selected disabled hidden>Enter your destination</option>
+																@foreach($data as $tour)
+																<option value="{{$tour->DestinationFrom}}">{{$tour->DestinationFrom}}</option>
+																@endforeach
 
 															</select><!-- /.select-->
 														</div><!-- /.travel-select-icon -->
@@ -220,12 +218,10 @@
 														<div class="travel-select-icon">
 															<select class="form-control ">
 
-															  	<option value="default">enter your destination location</option><!-- /.option-->
-
-															  	<option value="istambul">istambul</option><!-- /.option-->
-
-															  	<option value="mosko">mosko</option><!-- /.option-->
-															  	<option value="cairo">cairo</option><!-- /.option-->
+																<option value="default" selected disabled hidden>Enter your destination location</option>
+																@foreach($data as $tour)
+																<option value="{{$tour->DestinationTo}}">{{$tour->DestinationTo}}</option>
+																@endforeach
 
 															</select><!-- /.select-->
 														</div><!-- /.travel-select-icon -->

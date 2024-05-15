@@ -24,13 +24,38 @@ class HomeController extends Controller
         }
     }
 
-    public function destination()
+    public function home()
     {
         $data = tour::all();
 
-        return view('dashboard',compact('data'));
-               
+        return view('dashboard',compact('data'));   
+        
+    }
+    public function login_home()
+    {
+        $data = tour::all();
+
+        return view('dashboard',compact('data'));   
     }
 
+    public function search(Request $request)
+    {
+        // Validate the input
+        $request->validate([
+            'DestinationFrom' => 'required|string',
+            'DestinationTo' => 'required|string',
+            'date' => 'required|string',
+        ]);
+
+        // Retrieve data from the database
+        $tours = Tour::where('DestinationFrom', $request->DestinationFrom)
+                  ->where('DestinationTo', $request->DestinationTo)
+                  ->where('date', '=', date('Y-m-d', strtotime($request->date)))
+                  ->get();
+
+        // Return the results to the view
+        return view('dashboard', compact('tours'));
+    }
+    
   
 }

@@ -10,9 +10,15 @@ class Tour extends Model
     use HasFactory;
 
     protected $fillable = [
-        'usertype',
-        'name',
-        'email',
-        'password',
+        'Organization',
+        'TourName',
+        'DestinationFrom',
+        'DestinationTo',
+        'date',
+        'Prize',
+        'TourDay',
+        'TourNights',
+        'Facility',
+        'TourPhoto',     
     ];
 }
