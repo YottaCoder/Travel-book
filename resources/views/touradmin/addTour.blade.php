@@ -139,7 +139,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{route('adminAccSetting')}}">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
@@ -157,24 +157,21 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{route('adminAccSetting')}}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
                       </a>
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" style="display:flex;" >
                         <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
+                        <form method="POST" action="{{ route('logout')}}">
+                        @csrf
+                            <input type="submit" value="Logout" style="border: none; background-color: white;" >
+                        </form>
                       </a>
                     </li>
                   </ul>
@@ -196,7 +193,7 @@
                 <div class="col-md-12">
                   <div class="card mb-4">
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" action="{{url('')}}">
+                      <form id="formAccountSettings" method="POST" action="{{url('upload_tour')}}" enctype="multipart/form-data" >
                         @csrf
                         <div class="row">
                           <div class="mb-3 col-md-6">
@@ -217,7 +214,7 @@
                               class="form-control"
                               type="text"
                               id="Tour name"
-                              name="Tour name"
+                              name="TourName"
                               placeholder="Best Delhi to Ladakh tour "
                               required
                             />
@@ -228,7 +225,7 @@
                               type="text"
                               class="form-control"
                               id="Destination From"
-                              name="Destination From"
+                              name="DestinationFrom"
                               placeholder="From"
                               required
                             />
@@ -238,8 +235,8 @@
                             <input
                               type="text"
                               class="form-control"
-                              id="Destination To"
-                              name="Destination To"
+                              id="DestinationTo"
+                              name="DestinationTo"
                               placeholder="To"
                               required
                             />
@@ -282,26 +279,26 @@
                             <label class="form-label">Facility</label>
                             <div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="Meals" id="Meals" name="Meals">
+                                    <input class="form-check-input" type="checkbox" value="1" id="Meals" name="Meals">
                                     <label class="form-check-label" for="checkboxOption1">
                                         Meals
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="Hotel" id="Hotel" name="Hotel">
+                                    <input class="form-check-input" type="checkbox" value="1" id="Hotel" name="Hotel">
                                     <label class="form-check-label" for="checkboxOption2">
                                         Hotel
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="Transfer" id="Transfer" name="Transfer">
+                                    <input class="form-check-input" type="checkbox" value="1" id="Transfer" name="Transfer">
                                     <label class="form-check-label" for="checkboxOption3">
                                         Transfer
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="button-wrapper">
+                        <!-- <div class="button-wrapper">
                           <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                             <span class="d-none d-sm-block">Upload Tour photo</span>
                             <i class="bx bx-upload d-block d-sm-none"></i>
@@ -315,13 +312,18 @@
                               required
                             />
                           </label>
+                          
                           <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
                             <i class="bx bx-reset d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Reset</span>
                           </button>
                           <P style="color: red;">This photo is seen by travelers to attract more attention to your tour.</P>
                           <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                        </div>
+                        </div> -->
+                        <div  class="chooseImg">
+                        <label for="">Upload Tour Image</label> 
+                        <input class="docImage" type="file" name="TourPhoto" id="" >
+                    </div>
                         
                         </div>
                         <div class="mt-2">

@@ -114,7 +114,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="#" class="app-brand-link">
               <span class="app-brand-text demo menu-text fw-bolder ms-2">Travel<span style="color: #0AD3F2;">Book</span> </span>
             </a>
 
@@ -193,7 +193,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{route('adminAccSetting')}}">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
@@ -211,26 +211,20 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{route('adminAccSetting')}}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
                       </a>
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" >
+                      <a class="dropdown-item" style="display:flex;" >
                         <i class="bx bx-power-off me-2"></i>
                         <form method="POST" action="{{ route('logout')}}">
                         @csrf
-                           <input type="submit" value="Logout" >
+                            <input type="submit" value="Logout" style="border: none; background-color: white;" >
                         </form>
                       </a>
                     </li>

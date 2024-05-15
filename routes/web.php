@@ -28,3 +28,5 @@ Route::get('addTour',[TourAdminController::class,'addTour'])->name('addTour');
 Route::get('allTours',[TourAdminController::class,'allTours'])->name('allTours');
 
 Route::get('adminAccSetting',[TourAdminController::class,'adminAccSetting'])->name('adminAccSetting');
+
+Route::post('upload_tour',[TourAdminController::class,'upload_tour'])->name('upload_tour');

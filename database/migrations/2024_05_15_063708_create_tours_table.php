@@ -14,17 +14,17 @@ return new class extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
             $table->string('Organization')->nullablle();
-            $table->string('Tour name')->nullablle();
-            $table->string('Destination From')->nullablle();
-            $table->string('Destination To')->nullablle();
+            $table->string('TourName')->nullablle();
+            $table->string('DestinationFrom')->nullablle();
+            $table->string('DestinationTo')->nullablle();
             $table->string('date')->nullablle();
             $table->string('Prize')->nullablle();
             $table->string('TourDay')->nullablle();
             $table->string('TourNights')->nullablle();
-            $table->string('Meals')->nullablle();
-            $table->string('Hotel')->nullablle();
-            $table->string('Transfer')->nullablle();
-            $table->string('TourPhoto')->nullablle();
+            $table->boolean('Meals')->default(false);
+            $table->boolean('Hotel')->default(false);
+            $table->boolean('Transfer')->default(false);
+            $table->string('TourPhoto')->default('photo');
             $table->timestamps();
         });
     }

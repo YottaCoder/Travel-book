@@ -48,14 +48,16 @@
 		background-color: #4692F5;
 		transform: scale(1.01);
 	}
+
   </style>
   
 </head>
 <body>
-	
+
+
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('loginassets/images/bg-02.jpeg');">
-			<div class="wrap-login100">
+		<div class="container-login100" style="background-image: url('{{ asset('loginassets/images/bg-02.jpg') }}')">
+    		<div class="wrap-login100">
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                      @csrf
 					<span class="login100-form-logo">
