@@ -202,7 +202,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -213,7 +213,7 @@
                     </li>
                     <li>
                       <a class="dropdown-item" href="{{route('adminAccSetting')}}">
-                        <i class="bx bx-user me-2"></i>
+                        <i class="bx bx-user me-2"  style="padding-top:3px;"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
@@ -256,13 +256,20 @@
                             <th>Delete Tour</th>
                           </tr>
                         </thead>
+
+                        @foreach($data as $tour)
                         <tbody>
                           <tr>
-                            <td>John</td>
-                            <td>25</td>
-                            <td><button type="submit" class="btn btn-primary me-2">Delete</button></td>
+                            <td>{{$tour->id}}</td>
+                            <td>{{$tour->TourName}}</td>
+                            <td>
+                              <!-- <button type="submit" class="btn btn-primary me-2">Delete</button> -->
+                              <a href="{{url('deletetour',$tour->id)}}" class="btn btn-primary me-2" onclick="return confirm('Are you sure you want to delete Information of Tour ?')">Delete</a>
+                           
+                            </td>
                           </tr>
-                          <tr>
+                          @endforeach
+                          <!-- <tr>
                             <td>Jane</td>
                             <td>30</td>
                             <td><button type="submit" class="btn btn-primary me-2">Delete</button></td>
@@ -271,7 +278,7 @@
                             <td>Michael</td>
                             <td>28</td>
                             <td><button type="submit" class="btn btn-primary me-2">Delete</button></td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>

@@ -201,7 +201,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -221,7 +221,7 @@
                     </li>
                     <li>
                       <a class="dropdown-item" style="display:flex;" >
-                        <i class="bx bx-power-off me-2"></i>
+                        <i class="bx bx-power-off me-2" style="padding-top:3px;"></i>
                         <form method="POST" action="{{ route('logout')}}">
                         @csrf
                             <input type="submit" value="Logout" style="border: none; background-color: white;" >

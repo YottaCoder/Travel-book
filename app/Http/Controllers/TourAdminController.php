@@ -45,11 +45,14 @@ class TourAdminController extends Controller
 
     public function upload_tour(Request $request)
     {
-        $tour= new tour;
+        $tour= new Tour();
 
+        
+        //Save Image
         $image = $request->file('TourPhoto'); 
         $imagename = time().'.'.$image->getClientOriginalExtension();
-        $image->move('tourimage', $imagename); 
+        $image->move('storage/tourimage', $imagename); 
+        $tour->TourPhoto=$imagename;
         
         // $image = $request->TourPhoto;
         // $ext = $image->getClientOriginalExtension();
@@ -57,7 +60,12 @@ class TourAdminController extends Controller
         
         // $image = $request->file('TourPhoto');
 
-        $tour->TourPhoto=$imagename;
+        //Save Check Box
+        // $facility = $request->input('facility');
+        // $tour->facility = implode(' , ',$facility);
+        $tour->facility = json_encode($request->facility);
+
+
         $tour->Organization=$request->Organization;
         $tour->TourName=$request->TourName;
         $tour->DestinationFrom=$request->DestinationFrom;
@@ -66,11 +74,36 @@ class TourAdminController extends Controller
         $tour->Prize=$request->Prize;
         $tour->TourDay=$request->TourDay;
         $tour->TourNights=$request->TourNights;
-        $tour->Meals=$request->Meals;
-        $tour->Hotel=$request->Hotel;
-        $tour->Transfer=$request->Transfer;
+        
 
         $tour->save();
+
+        return redirect()->back()->with('message','Successfully Added Tour Information');
+    }
+
+    public function showtour()
+    {
+        if(Auth::id())
+        {
+            if(Auth::user()->usertype === 'Tour Owner')
+            {
+                $data = tour::all();
+
+                return view('touradmin.allTours',compact('data'));
+            }
+            else
+            {
+                return redirect()->back();
+            }
+        }
+        
+    }
+
+    public function deletetour($id)
+    {
+        $data = tour::find($id);
+
+        $data->delete();
 
         return redirect()->back();
     }

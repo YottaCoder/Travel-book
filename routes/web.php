@@ -30,3 +30,9 @@ Route::get('allTours',[TourAdminController::class,'allTours'])->name('allTours')
 Route::get('adminAccSetting',[TourAdminController::class,'adminAccSetting'])->name('adminAccSetting');
 
 Route::post('upload_tour',[TourAdminController::class,'upload_tour'])->name('upload_tour');
+
+Route::get('/allTours',[TourAdminController::class,'showtour'])->name('allTours');
+
+Route::get('/deletetour/{id}',[TourAdminController::class,'deletetour']);
+
+Route::get('/dashboard',[TourAdminController::class,'destination'])->name('dashboard');

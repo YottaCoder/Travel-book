@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 20px;
+}
+
+.card-img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    border-right: 2px solid #ddd;
+}
+
+.card-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0;
+}
+
+.card-duration,
+.card-seller,
+.card-location {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.card-details {
+    margin-top: 10px;
+}
+
+.card-icons span {
+    margin-right: 15px;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.card-price {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-left: 2px solid #ddd;
+    min-width: 150px;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    margin: 0;
+}
+
+.price-desc {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.view-details {
+    margin-top: 4rem;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    width: 6rem;
+}
+
+.view-details:hover {
+    background-color: #c0392b;
+}
+
+.earn-cash {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="./Taj Mahal.jpg" alt="Leh Image" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Beautiful Leh With Pangong Lake (Standard)</h2>
+            <p class="card-duration">4 Nights / 5 Days</p>
+            <p class="card-seller">Tour Owner: Tony Traveler</p>
+            <div class="card-details">
+                <div class="card-icons">
+                    <span>Meals</span>
+                    <span>Hotel</span>
+                    <span>Transfer</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-price">
+            <p class="price">₹ 22,590</p>
+            <p class="price-desc">Per Person on twin sharing</p>
+            <button class="view-details">Book</button>
+        </div>
+    </div>
+</body>
+</html>

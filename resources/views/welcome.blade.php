@@ -92,7 +92,6 @@
 										<li class="smooth-menu"><a href="#home">home</a></li>
 										<li class="smooth-menu"><a href="#gallery">Destination</a></li>
 										<li class="smooth-menu"><a href="#pack">Packages </a></li>
-										<li class="smooth-menu"><a href="#spo">Special Offers</a></li>
 										<li class="smooth-menu"><a href="#blog">blog</a></li>
 										<li class="smooth-menu"><a href="#subs">subscription</a></li>
 										@if(Route::has('login'))

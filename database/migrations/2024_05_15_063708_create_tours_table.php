@@ -21,10 +21,8 @@ return new class extends Migration
             $table->string('Prize')->nullablle();
             $table->string('TourDay')->nullablle();
             $table->string('TourNights')->nullablle();
-            $table->boolean('Meals')->default(false);
-            $table->boolean('Hotel')->default(false);
-            $table->boolean('Transfer')->default(false);
-            $table->string('TourPhoto')->default('photo');
+            $table->string('Facility')->nullablle();
+            $table->string('TourPhoto')->default('Photo');
             $table->timestamps();
         });
     }

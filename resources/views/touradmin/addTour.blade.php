@@ -21,6 +21,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -147,7 +150,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -167,7 +170,7 @@
                     </li>
                     <li>
                       <a class="dropdown-item" style="display:flex;" >
-                        <i class="bx bx-power-off me-2"></i>
+                        <i class="bx bx-power-off me-2" style="padding-top:3px;"></i>
                         <form method="POST" action="{{ route('logout')}}">
                         @csrf
                             <input type="submit" value="Logout" style="border: none; background-color: white;" >
@@ -188,6 +191,14 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Add Tour</span></h4>
+             
+             
+              @if(session()->has('message'))
+              <div class="alert alert-success">
+                  {{session()->get('message')}}
+                  <button type="button" class="close"  data-bs-dismiss="alert" style="display:flex; float:right; border:none;padding-top:0px; background:transparent; color:green;">X</button>
+              </div>
+              @endif
 
               <div class="row">
                 <div class="col-md-12">
@@ -279,19 +290,19 @@
                             <label class="form-label">Facility</label>
                             <div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="1" id="Meals" name="Meals">
+                                    <input class="form-check-input" type="checkbox" value="Meals" id="Meals" name="facility[]">
                                     <label class="form-check-label" for="checkboxOption1">
                                         Meals
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="1" id="Hotel" name="Hotel">
+                                    <input class="form-check-input" type="checkbox" value="Hotel" id="Hotel" name="facility[]">
                                     <label class="form-check-label" for="checkboxOption2">
                                         Hotel
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" value="1" id="Transfer" name="Transfer">
+                                    <input class="form-check-input" type="checkbox" value="Transfer" id="Transfer" name="facility[]">
                                     <label class="form-check-label" for="checkboxOption3">
                                         Transfer
                                     </label>
@@ -320,10 +331,12 @@
                           <P style="color: red;">This photo is seen by travelers to attract more attention to your tour.</P>
                           <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
                         </div> -->
-                        <div  class="chooseImg">
-                        <label for="">Upload Tour Image</label> 
-                        <input class="docImage" type="file" name="TourPhoto" id="" >
-                    </div>
+                        <div class="button-wrapper">
+                            
+                                <span class="d-none d-sm-block form-label" style="font-size: 0.75rem;">Upload Tour Photo</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input class="docImage" type="file" name="TourPhoto" id="" style="padding-bottom:5px ;">
+                        </div>
                         
                         </div>
                         <div class="mt-2">
@@ -370,6 +383,11 @@
 
     <!-- Page JS -->
     <script src="{{asset('Adminassets/assets/js/dashboards-analytics.js')}}"></script>
+
+    <!-- Bootstarp -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

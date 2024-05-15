@@ -24,5 +24,13 @@ class HomeController extends Controller
         }
     }
 
+    public function destination()
+    {
+        $data = tour::all();
+
+        return view('dashboard',compact('data'));
+               
+    }
+
   
 }
