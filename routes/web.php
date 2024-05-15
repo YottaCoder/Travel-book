@@ -21,4 +21,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('touradmin/dashboard',[HomeController::class,'index']);
+Route::get('touradmin/dashboard',[HomeController::class,'index'])->name('touradmin/dashboard');
+
+Route::get('addTour',[TourAdminController::class,'addTour'])->name('addTour');
+
+Route::get('allTours',[TourAdminController::class,'allTours'])->name('allTours');
+
+Route::get('adminAccSetting',[TourAdminController::class,'adminAccSetting'])->name('adminAccSetting');

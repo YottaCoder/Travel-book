@@ -50,60 +50,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('Adminassets/assets/js/config.js')}}"></script>
-    <style>
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-      }
-      th, td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-      @media screen and (max-width: 600px) {
-        table, thead, tbody, th, td, tr {
-          display: block;
-        }
-        thead tr {
-          position: absolute;
-          top: -9999px;
-          left: -9999px;
-        }
-        tr {
-          margin-bottom: 20px;
-        }
-        td {
-          border: none;
-          position: relative;
-          padding-left: 50%;
-        }
-        td:before {
-          position: absolute;
-          top: 6px;
-          left: 6px;
-          width: 45%;
-          padding-right: 10px;
-          white-space: nowrap;
-        }
-        td:nth-of-type(1):before {
-          content: "Name:";
-        }
-        td:nth-of-type(2):before {
-          content: "Age:";
-        }
-        td:nth-of-type(3):before {
-          content: "Country:";
-        }
-      }
-    </style>
-
   </head>
 
   <body>
@@ -127,15 +73,15 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="{{route('touradmin/dashboard')}}" class="menu-link">
+            <li class="menu-item">
+              <a class="menu-link" href="{{route('touradmin/dashboard')}}">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item ">
               <a href="{{route('adminAccSetting')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Account Settings</div>
@@ -147,8 +93,8 @@
               <span class="menu-header-text">Pages</span>
             </li>
 
-            <li class="menu-item">
-              <a class="menu-link" href="{{route('addTour')}}">
+            <li class="menu-item active">
+              <a href="{{route('addTour')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Add Tour</div>
               </a>
@@ -226,12 +172,9 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" >
+                      <a class="dropdown-item" href="auth-login-basic.html">
                         <i class="bx bx-power-off me-2"></i>
-                        <form method="POST" action="{{ route('logout')}}">
-                        @csrf
-                           <input type="submit" value="Logout" >
-                        </form>
+                        <span class="align-middle">Log Out</span>
                       </a>
                     </li>
                   </ul>
@@ -242,45 +185,150 @@
           </nav>
 
           <!-- / Navbar -->
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard</span></h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Add Tour</span></h4>
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="card mb-4">
                     <div class="card-body">
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Booking Id</th>
-                            <th>Tour Id</th>
-                            <th>Tour Name</th>
-                            <th>Traveler Id</th>
-                            <th>Traveler Name</th>
-                            <th>Book Status</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>001</td>
-                            <td>101</td>
-                            <td>Ladakh Tour</td>
-                            <td>201</td>
-                            <td>Rohit Solanki</td>
-                            <td>Pending</td>
-                            <td>
-                              <button type="submit" class="btn btn-primary me-0">Approve</button>
-                              <button type="submit" class="btn btn-primary me-0">Cancel</button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <form id="formAccountSettings" method="POST" action="{{url('')}}">
+                        @csrf
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">Organization</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="Organization"
+                              name="Organization"
+                              placeholder="Tour Organizer"
+                              autofocus
+                              required
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="Tour name" class="form-label">Tour name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="Tour name"
+                              name="Tour name"
+                              placeholder="Best Delhi to Ladakh tour "
+                              required
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">Destination</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="Destination From"
+                              name="Destination From"
+                              placeholder="From"
+                              required
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">&nbsp;</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="Destination To"
+                              name="Destination To"
+                              placeholder="To"
+                              required
+                            />
+                          </div>
+                          
+                          <div class="mb-3 col-md-6">
+                            <label for="address" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" placeholder="Select Tour Date" required/>
+                          </div>
+
+                          <div class="mb-3 col-md-6">
+                            <label for="address" class="form-label">Prize</label>
+                            <input type="text" class="form-control" id="Prize" name="Prize" placeholder="Tour Prize" required />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="zipCode" class="form-label">Days</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="TourDay"
+                              name="TourDay"
+                              placeholder="How many Day for Tour"
+                              maxlength="6"
+                              required
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="zipCode" class="form-label">Nights</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="TourNights"
+                              name="TourNights"
+                              placeholder="How many Night for Tour"
+                              maxlength="6"
+                              required
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label">Facility</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="Meals" id="Meals" name="Meals">
+                                    <label class="form-check-label" for="checkboxOption1">
+                                        Meals
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="Hotel" id="Hotel" name="Hotel">
+                                    <label class="form-check-label" for="checkboxOption2">
+                                        Hotel
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="Transfer" id="Transfer" name="Transfer">
+                                    <label class="form-check-label" for="checkboxOption3">
+                                        Transfer
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-wrapper">
+                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <span class="d-none d-sm-block">Upload Tour photo</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input
+                              type="file"
+                              id="upload"
+                              name="TourPhoto"
+                              class="account-file-input"
+                              hidden
+                              accept="image/png, image/jpeg"
+                              required
+                            />
+                          </label>
+                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                            <i class="bx bx-reset d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Reset</span>
+                          </button>
+                          <P style="color: red;">This photo is seen by travelers to attract more attention to your tour.</P>
+                          <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                        </div>
+                        
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Add Tour</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
                     </div>
                     <!-- /Account -->
                   </div>
@@ -323,5 +371,12 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+      $(document).ready(function(){
+          var today = new Date().toISOString().split('T')[0];
+          $('#date').attr('min',today);
+      })
+    </script>
   </body>
 </html>

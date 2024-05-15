@@ -50,6 +50,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('Adminassets/assets/js/config.js')}}"></script>
+
     <style>
       table {
         width: 100%;
@@ -127,15 +128,15 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="{{route('touradmin/dashboard')}}" class="menu-link">
+            <li class="menu-item">
+              <a class="menu-link" href="{{route('touradmin/dashboard')}}">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item ">
               <a href="{{route('adminAccSetting')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Account Settings</div>
@@ -148,13 +149,13 @@
             </li>
 
             <li class="menu-item">
-              <a class="menu-link" href="{{route('addTour')}}">
+              <a href="{{route('addTour')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Layouts">Add Tour</div>
               </a>
             </li>
 
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="{{route('allTours')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">All Tours</div>
@@ -226,12 +227,9 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" >
+                      <a class="dropdown-item" href="auth-login-basic.html">
                         <i class="bx bx-power-off me-2"></i>
-                        <form method="POST" action="{{ route('logout')}}">
-                        @csrf
-                           <input type="submit" value="Logout" >
-                        </form>
+                        <span class="align-middle">Log Out</span>
                       </a>
                     </li>
                   </ul>
@@ -242,13 +240,12 @@
           </nav>
 
           <!-- / Navbar -->
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard</span></h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">All Tours</span></h4>
 
               <div class="row">
                 <div class="col-md-12">
@@ -257,27 +254,26 @@
                       <table>
                         <thead>
                           <tr>
-                            <th>Booking Id</th>
                             <th>Tour Id</th>
                             <th>Tour Name</th>
-                            <th>Traveler Id</th>
-                            <th>Traveler Name</th>
-                            <th>Book Status</th>
-                            <th>Action</th>
+                            <th>Delete Tour</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>001</td>
-                            <td>101</td>
-                            <td>Ladakh Tour</td>
-                            <td>201</td>
-                            <td>Rohit Solanki</td>
-                            <td>Pending</td>
-                            <td>
-                              <button type="submit" class="btn btn-primary me-0">Approve</button>
-                              <button type="submit" class="btn btn-primary me-0">Cancel</button>
-                            </td>
+                            <td>John</td>
+                            <td>25</td>
+                            <td><button type="submit" class="btn btn-primary me-2">Delete</button></td>
+                          </tr>
+                          <tr>
+                            <td>Jane</td>
+                            <td>30</td>
+                            <td><button type="submit" class="btn btn-primary me-2">Delete</button></td>
+                          </tr>
+                          <tr>
+                            <td>Michael</td>
+                            <td>28</td>
+                            <td><button type="submit" class="btn btn-primary me-2">Delete</button></td>
                           </tr>
                         </tbody>
                       </table>
@@ -301,8 +297,6 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
     <script src="{{asset('Adminassets/assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{asset('Adminassets/assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{asset('Adminassets/assets/vendor/libs/popper/popper.js')}}"></script>
